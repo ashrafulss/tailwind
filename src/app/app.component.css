@@ -1,0 +1,9 @@
+
+
+
+
+@media (max-width: 640px) {
+    .sm:extra-design {
+      @apply text-green-500;  /* Change to green on screens 640px or larger */
+    }
+  }
