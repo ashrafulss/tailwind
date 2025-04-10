@@ -1,7 +1,7 @@
 
 
 
-import { HttpClient } from '@angular/common/http';
+import { HttpBackend, HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
@@ -10,24 +10,27 @@ import { Observable } from 'rxjs';
 })
 export class AuthsService {
 
+  private rawHttp: HttpClient;
 
+  constructor(private http: HttpClient, private httpBackend: HttpBackend) {
+      this.rawHttp = new HttpClient(httpBackend)
 
-  constructor(private http: HttpClient) {}
+  }
 
 
 
   login(credentials: any): Observable<any> {
 
     
-    return this.http.post<any>('http://localhost:8010/auth/api/v1/login', credentials, {withCredentials: true},);
+    return this.rawHttp.post<any>('http://localhost:8010/auth/api/v1/login', credentials, {withCredentials: true},);
   }
 
 
 
   // test():Observable<string>{
 
-  //   return this.http.post<any>('http://localhost:8080/greenlc/api/v1/hello', {}, { withCredentials: true });
-  // }
+    return this.http.post<any>('http://localhost:8080/greenlc/api/v1/hello', {}, { withCredentials: true });
+  }
 
 
 
