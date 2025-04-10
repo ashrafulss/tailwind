@@ -24,11 +24,21 @@ export class AuthsService {
 
 
 
-  test():Observable<any>{
+  // test():Observable<string>{
 
-    return this.http.post<any>('http://localhost:8080/greenlc/api/v1/hello', {}, { withCredentials: true });
+  //   return this.http.post<any>('http://localhost:8080/greenlc/api/v1/hello', {}, { withCredentials: true });
+  // }
+
+
+
+  test(): Observable<string> {
+    return this.http.post<string>('http://localhost:8080/greenlc/api/v1/hello', {}, {
+      withCredentials: true,
+      responseType: 'text' as 'json'  // Tell Angular that the response is plain text
+    });
   }
-
+  
+  
 
 
 
