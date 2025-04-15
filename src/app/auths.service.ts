@@ -27,10 +27,6 @@ export class AuthsService {
 
 
 
-  // test():Observable<string>{
-
-    return this.http.post<any>('http://localhost:8080/greenlc/api/v1/hello', {}, { withCredentials: true });
-  }
 
 
 
